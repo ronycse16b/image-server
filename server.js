@@ -71,6 +71,14 @@ async function compressImage(buffer, filename) {
 
 // ------------------- ROUTES ------------------- //
 
+app.get("/", (req, res) => {
+  res.send(`
+    <h1>Image CDN is live!</h1>
+    <p>Access images via /uploads/filename.jpg</p>
+  `);
+});
+
+
 // GET all images
 app.get("/images", (req, res) => {
   fs.readdir(path.join(__dirname, UPLOADS_DIR), (err, files) => {
