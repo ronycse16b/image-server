@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  image-cdn:
+    build: .
+    container_name: image-cdn
+    restart: always
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    volumes:
+      - ./uploads:/app/uploads
