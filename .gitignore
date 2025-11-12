@@ -1,8 +1,8 @@
 # Node modules
 node_modules/
 
-# Environment variables
-.env
+# # Environment variables
+# .env
 
 # Uploads folder (optional: if you want to keep uploads outside Git)
 uploads/
