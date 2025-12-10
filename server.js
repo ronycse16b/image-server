@@ -18,9 +18,8 @@ const PORT = process.env.PORT || 4000;
 const UPLOADS_DIR = process.env.UPLOADS_DIR || "uploads";
 const UPLOADS_URL =
   process.env.UPLOADS_URL || "https://cdn.soulcraftbd.com/uploads";
-const ALLOWED_ORIGINS = (
-  process.env.ALLOWED_ORIGINS || "https://soulcraftbd.com" || "http://localhost:3000"
-).split(",");
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.split(",");
+
 const MAX_FILES = parseInt(process.env.MAX_FILES || "20");
 const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE || 2 * 1024 * 1024);
 const ALLOWED_TYPES = (
