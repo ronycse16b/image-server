@@ -169,5 +169,5 @@ app.delete("/images/:filename", (req, res) => {
 
 // ------------------ START SERVER ------------------ //
 app.listen(PORT, () =>
-  console.log(`🚀 CDN running at: http://127.0.0.1:${PORT}/uploads`)
+  console.log(`🚀 CDN running at ${PORT}/uploads`)
 );
