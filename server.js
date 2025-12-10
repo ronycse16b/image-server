@@ -170,3 +170,6 @@ app.delete("/images/:filename", (req, res) => {
 app.listen(PORT, () =>
   console.log(`🚀 CDN running at  ${PORT}/uploads`)
 );
+
+
+// update server 11-12-2025
