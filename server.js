@@ -30,19 +30,21 @@ const ALLOWED_TYPES = (
 if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 // ------------------ MIDDLEWARE ------------------ //
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // Allow requests from specific origins or no-origin (server-side requests)
-      if (!origin || ALLOWED_ORIGINS.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // Allow requests from specific origins or no-origin (server-side requests)
+//       if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     credentials: true,
+//   })
+// );
+
+app.use(cors()); // Allow all origins for now
 
 app.use(express.json());
 
