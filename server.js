@@ -9,42 +9,39 @@ import morgan from "morgan";
 
 dotenv.config();
 const app = express();
-app.use(morgan("combined"));
+app.use(morgan());
 
 const __dirname = path.resolve();
 
 // ------------------ ENV CONFIG ------------------ //
 const PORT = process.env.PORT || 4000;
 const UPLOADS_DIR = process.env.UPLOADS_DIR || "uploads";
-const UPLOADS_URL =
-  process.env.UPLOADS_URL || "https://cdn.soulcraftbd.com/uploads";
+const UPLOADS_URL = process.env.UPLOADS_URL || "https://cdn.soulcraftbd.com/uploads";
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.split(",");
 
 const MAX_FILES = parseInt(process.env.MAX_FILES || "20");
 const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE || 2 * 1024 * 1024);
-const ALLOWED_TYPES = (
-  process.env.ALLOWED_TYPES || "image/jpeg,image/png,image/webp"
-).split(",");
+const ALLOWED_TYPES = (process.env.ALLOWED_TYPES || "image/jpeg,image/png,image/webp").split(",");
 
 // Ensure upload folder exists
 if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 // ------------------ MIDDLEWARE ------------------ //
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       // Allow requests from specific origins or no-origin (server-side requests)
-//       if (!origin || ALLOWED_ORIGINS.includes(origin)) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests from specific origins or no-origin (server-side requests)
+      if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
-app.use(cors()); // Allow all origins for now
+// app.use(cors()); // Allow all origins for now
 
 app.use(express.json());
 
@@ -171,5 +168,5 @@ app.delete("/images/:filename", (req, res) => {
 
 // ------------------ START SERVER ------------------ //
 app.listen(PORT, () =>
-  console.log(`🚀 CDN running at ${PORT}/uploads`)
+  console.log(`🚀 CDN running at  ${PORT}/uploads`)
 );
