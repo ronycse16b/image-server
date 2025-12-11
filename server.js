@@ -20,7 +20,7 @@ const UPLOADS_URL = process.env.UPLOADS_URL || "https://cdn.soulcraftbd.com/uplo
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.split(",");
 
 const MAX_FILES = parseInt(process.env.MAX_FILES || "20");
-const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE || 2 * 1024 * 1024);
+const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE || 6 * 1024 * 1024);
 const ALLOWED_TYPES = (process.env.ALLOWED_TYPES || "image/jpeg,image/png,image/webp").split(",");
 
 // Ensure upload folder exists
