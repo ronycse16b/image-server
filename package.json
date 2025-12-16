@@ -20,6 +20,7 @@
     "morgan": "^1.10.1",
     "multer": "^2.0.2",
     "npm": "^11.6.2",
+    "p-queue": "^9.0.1",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
